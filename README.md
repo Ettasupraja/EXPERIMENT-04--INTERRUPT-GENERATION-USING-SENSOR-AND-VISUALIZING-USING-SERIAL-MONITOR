@@ -1,10 +1,10 @@
-# EXPERIMENT-04-INTERRUPT-GENERATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6b160f45-84da-4b40-8f04-e2edf8783cd9" /># EXPERIMENT-04-INTERRUPT-GENERATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR
 
-###  DATE: 
+###  DATE: 14-05-2026
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME:  ETTA SUPRAJA
+###  ROLL NO : 212223220022
+###  DEPARTMENT: B.Tech IT
 ### Aim:
 To Interface a IR Sensor to digital port of iot development board  and generate an interrupt and visualize on the serial monitor 
 
@@ -125,15 +125,62 @@ The diagram below shows how the GPIO pins are connected to the 16 interrupt line
  
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+#include "stdio.h"
 
+
+UART_HandleTypeDef huart2;
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
+
+int __io_putchar(int ch){
+	HAL_UART_Transmit(&huart2,(uint8_t*)&ch,1,0xFFFF);
+	return ch;
+}
+
+int main(void)
+{
+
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  MX_USART2_UART_Init();
+
+  while (1)
+  {
+	  printf("MAIN PROGRAM RUNNING\n");
+	  HAL_Delay(2000);
+
+  }
+
+}
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	if(GPIO_Pin==GPIO_PIN_4){
+		printf("INTERRUPT GENERATED\n");
+	}
+}
+
+```
 
 
 ## Output screen shots of serial port utility   :
- 
+
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/c3d53f9b-3b15-4625-a3cc-02c3a34f3b36" />
+
+
  
  ## Circuit board :
  
- 
+
+<img width="720" height="1599" alt="WhatsApp Image 2026-05-14 at 6 46 45 PM" src="https://github.com/user-attachments/assets/bbefe89f-e51f-4854-8e45-b33d1a93a5d9" />
+
+
+<img width="720" height="1599" alt="WhatsApp Image 2026-05-14 at 6 46 31 PM" src="https://github.com/user-attachments/assets/75a00ea7-7116-413d-9845-d814c3083e37" />
+
  
 ## Result :
 Interfacing a  IR SENSOR and interrupt is generated using external interrupt mode , visualized on serial port 
