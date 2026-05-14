@@ -1,4 +1,3 @@
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/6b160f45-84da-4b40-8f04-e2edf8783cd9" /># EXPERIMENT-04-INTERRUPT-GENERATION-USING-SENSOR-AND-VISUALIZING-USING-SERIAL-MONITOR
 
 ###  DATE: 14-05-2026
 
